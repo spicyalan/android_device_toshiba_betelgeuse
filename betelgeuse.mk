@@ -127,6 +127,7 @@ PRODUCT_PACKAGES += \
     sensors.betelgeuse \
     libhuaweigeneric-ril \
     audio.primary.betelgeuse \
+    hwcomposer.tegra.so \
     audio.a2dp.default \
     wmiconfig \
     setup_fs
