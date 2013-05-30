@@ -106,7 +106,9 @@ ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.strictmode.visual=0
 
 PRODUCT_CHARACTERISTICS := tablet
 
-PRODUCT_AAPT_CONFIG := xlarge mdpi
+# prefer mdpi drawables where available
+PRODUCT_AAPT_CONFIG := normal mdpi hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 DEVICE_PACKAGE_OVERLAYS := \
     device/toshiba/betelgeuse/overlay
