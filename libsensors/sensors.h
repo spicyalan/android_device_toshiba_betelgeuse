@@ -129,6 +129,8 @@ static const struct sensor_t sSensorList[] = {
 		SENSOR_UX500_MAGNETOMETER_STEP,
 		0.83f,
 		MINDELAY_MAGNETIC_FIELD,
+		0,
+		0,
 		{}
 	},
 	{"LSM303DLH 3-axis Accelerometer sensor",
@@ -140,6 +142,8 @@ static const struct sensor_t sSensorList[] = {
 		SENSOR_UX500_ACCELEROMETER_STEP,
 		0.83f,
 		MINDELAY_ACCELEROMETER,
+		0,
+		0,
 		{}
 	},
 	{"LSM303DLH 3-axis Orientation sensor",
@@ -151,6 +155,8 @@ static const struct sensor_t sSensorList[] = {
 		1.0f,
 		1.66f,
 		MINDELAY_ORIENTATION,
+		0,
+		0,
 		{}
 	},
 };
