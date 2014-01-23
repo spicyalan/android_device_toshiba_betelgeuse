@@ -21,6 +21,8 @@ TARGET_ARCH_LOWMEM := true
 
 ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_USE_NON_NEON_MEMCPY := true
+ARCH_ARM_HIGH_OPTIMIZATION := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
 
 USE_OPENGL_RENDERER := true
 BOARD_EGL_NEEDS_LEGACY_FB := false
@@ -68,12 +70,18 @@ BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_AUDIO_LEGACY := false
 TARGET_USES_OLD_LIBSENSORS_HAL := false
 
-BOARD_EGL_CFG := device/toshiba/betelgeuse/egl.cfg
+# BOARD_EGL_CFG := device/toshiba/betelgeuse/egl.cfg
 TARGET_OTA_ASSERT_DEVICE := betelgeuse,folio100,GT-P7510
+
+# Don't create recovery, because full ROM kernel is too big for image. If you want to create a recovery, use specific betelguese recovery defconfig
+# for compiling a light kernel and comment this line. After that, uncomment this line again with normal defconfig. Switch of the defconfig is 
+# defined in AndroidBoard.mk
+# TARGET_NO_RECOVERY := true
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 5242880
+# 5242880 is the real value
+# BOARD_RECOVERYIMAGE_PARTITION_SIZE := 5242880
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 536870912
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12948340736
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -100,3 +108,4 @@ NEED_WORKAROUND_CORTEX_A9_745320 := true
 ENABLE_WEBGL := true
 SENSORS_NEED_SETRATE_ON_ENABLE := true
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+TARGET_EXTRA_CFLAGS := $(call cc-option,-mtune=cortex-a9)$(call cc-option,-mcpu=cortex-a9)
